@@ -1,0 +1,34 @@
+{{> styleholder}}
+<div>
+<style>
+img{
+overflow: none
+}
+</style>
+<div>
+<img src="https://cdn.eckovation.com/images/Introduction-to-blockchain.png" alt="Image" width="154" height="96">
+
+
+  <h2>Welcome to {{everything.courseName}}</h2>
+
+</div>
+  <ul style="list-style:none">
+  {{#each everything.contents}}
+    <li>
+    {{#ifStringEquals this.type "Video" }}
+      Title: <a href="{{this.url}}">{{this.name}}</a>
+      <ul>
+          <li>Duration: {{this.time}}</li>
+          <li>Seen: {{this.seen}}</li>
+      </ul>
+    {{/ifStringEquals}}
+    {{#ifStringEquals this.type "Quiz" }}
+      Title: {{this.name}}
+      <ul>
+          <li>Score: {{this.score}}</li>
+          <li>Taken: {{this.taken}}</li>
+      </ul>
+    {{/ifStringEquals}}
+    </li>
+  {{/each}}
+</ul>
